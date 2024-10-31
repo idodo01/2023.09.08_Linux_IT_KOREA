@@ -1,0 +1,9 @@
+우분트 : user user root root
+	유저	비번
+
+
+tzselect : 시간 변경(도시 변경)
+sudo dpkg-reconfigure tzdata : 시간변경(타임)
+date : 시간확인
+history : 본인이 입력했던 모든 명령어를 보여준다.(제대로 실행되는 것만)
+

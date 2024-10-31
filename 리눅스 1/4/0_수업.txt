@@ -1,0 +1,216 @@
+--------------------------1
+우분트 : user user root root
+	유저	비번
+
+-------------------------2
+tzselect : 시간 변경(도시 변경)
+sudo dpkg-reconfigure tzdata : 시간변경(타임)
+date : 시간확인
+history : 본인이 입력했던 모든 명령어를 보여준다.(제대로 실행되는 것만)
+
+----------------------------------3
+	1. 홈디렉토리 - 로그인한 사용자의 "내문서" 같은 느낌
+
+1) 경로 - /home/<사용자이름>/  (물결표(~) 축약하여 사용)
+user@ubuntu:~/Desktop$ cd ~
+user@ubuntu:~$ 
+
++) 참고: root 계정의 홈디렉토리는 /root (/home/root 아님)
+
+
+	2. 루트 디렉토리
+
+1) 경로 - / (절대경로)
+user@ubuntu:~$ cd /
+user@ubuntu:/$
+
+2) 개념
+최상위 디렉토리 ( 루트 디렉토리보다 상위 디렉토리는 없음)
+
+	3. 경로
+
+1) 절대경로 -user@ubuntu:/$  <- 절대 경로로 시작한다는 것을 의미
+
+: 루트 디렉토리로 명시한 경로 
+
+2) 상대경로
+user@ubuntu:~$  : 상대 경로로 시작한다는 것을 의미
+
+	4. cd (change directory): 디렉토리 이동
+	5. 상위 디렉토리 (..)
+	
+사용 4+5 : cd .. : 상위 디렉토리로 이동
+
++) 현재 작업 디렉토리가 ~ 일때 (~가 사용자 홈디렉토리 위치인데), 
+cd.. 하면 작업 디렉토리가 /home으로 변경된다 (그 상위는 /home이니까)
+
+user@ubuntu:~$ cd ..
+user@ubuntu:/home$ 
+
+	6. pwd : 현재 작업 디렉토리의 (절대)경로 출력
+
++) root(/) 안에 /home 안에 user
+/home/user
+
+					/
+user@ubuntu:/$ cd ~			/home/user	
+user@ubuntu:~$ cd ..			/home
+user@ubuntu:/home$ ls -l
+total 4
+drwxr-xr-x 14 user user 4096 Sep  8 18:30 user
+
+	7. man 명령어 - manual
+	: 명령어의 메뉴얼을 출력
+	ex) man ls 
+
+	8. ls 명령어 - list
+	-l: 목록 단순 나열이 아닌 표 형태로
+
+	9.clear
+
+	10.mkdir
+(1)
+user@ubuntu:~$ mkdir school
+user@ubuntu:~$ ls
+Desktop    Downloads  Pictures  school     Videos
+Documents  Music      Public    Templates
+
+(2)
+user@ubuntu:~$ mkdir school/stu1
+user@ubuntu:~$ cd school
+user@ubuntu:~/school$ ls
+stu1
+	11.rmdir : 디렉토리 삭제
+
+	12.rm(remove) : 파일, 디렉토리 삭제
+
+	ex) rm -rf* 
+	-f: 대상으로 하는 경로나 패턴에 일치하는 파일이나 디렉토리가 없어도
+	-r: 만약 대상 디렉토리가 비어있지 않다면, 내용부터 삭제하고 디렉토리 삭제
+
+
+	----실습
+user@ubuntu:~/school$ mkdir school
+user@ubuntu:~/school$ mkdir school/stu1
+user@ubuntu:~/school$ mkdir school/stu2
+user@ubuntu:~/school$ mkdir school/stu3
+user@ubuntu:~/school$ mkdir school/stu4
+
+user@ubuntu:~$ rm school			- 안에 내용이 있어서 삭제불가
+rm: cannot remove 'school': Is a directory
+
+user@ubuntu:~$ rm -rf school 		- 안에 내용 제거 후 디렉토리제거
+
+
+------------------------------
+루트 디렉토리에서 mkdir 안될 때 앞에 sudo
+
+
+
+==============================================4
+	13. cp(copy) - 파일 혹은 디렉토리 복사
+
+	cp (대상파일) (복사하고자하는 경로)
+
+user@ubuntu:~$ touch file1
+user@ubuntu:~$ ls
+Desktop    Downloads  linux  Pictures  Templates
+Documents  file1      Music  Public    Videos
+user@ubuntu:~$ cp file1 file2
+user@ubuntu:~$ ls
+Desktop    Downloads  file2  Music     Public     Videos
+Documents  file1      linux  Pictures  Templates
+
+	14. mv
+	mv (대상파일) (복사하고자하는 경로)
+(1) 파일 이동
+user@ubuntu:~$ mv file1 linux
+user@ubuntu:~$ cd linux
+user@ubuntu:~/linux$ ls
+c2  file1  java3  linux1
+
+(2) 디렉토리 이동
+user@ubuntu:~$ mkdir koreait
+user@ubuntu:~$ ls
+Desktop    Downloads  koreait  Music     Public     Videos
+Documents  file2      linux    Pictures  Templates
+
+user@ubuntu:~$ mv koreait linux
+user@ubuntu:~$ ls
+Desktop    Downloads  linux  Pictures  Templates
+Documents  file2      Music  Public    Videos
+
+user@ubuntu:~$ cd linux
+user@ubuntu:~/linux$ ls
+c2  file1  java3  koreait  linux1
+
+	14. touch 빈 파일 생성
+	15. nano 편집기
+
+user@ubuntu:~$ cd Desktop
+user@ubuntu:~/Desktop$ nano linux.txt
+
+nano linux.txt
+
+linux
+koreait
+java
+c
+c++
+
+나가기 : 컨트롤 + x 
+수정을 반영할 것인가 : y 
+linux2.txt : 엔터  (linux2로 이름 변경했음)
+
+nano linux.txt
+
+koreait
+
+나가기 : 컨트롤 + x 
+수정을 반영할 것인가 : y 
+linux.txt : 엔터
+
+	16. tail - 파일 뒷부분 출력
+
+user@ubuntu:~/Desktop$ tail -n 2  linux2.txt
+c
+c++
+
+user@ubuntu:~/Desktop$ tail -n 1  linux.txt
+koreait
+
+	17. 권한
+	(1) 
+drwxr-xr-x 2 user user 4096 Sep 12 17:36 Desktop
+
+d 디렉토리 / - 일반 파일
+r 읽기/ w 쓰기/ x 실행
+
+디렉토리	소유자(owner) 그룹(group) 기타(other)
+d	rwx	r-x	r-x
+
+	(2) 관리자
+user@ubuntu:~/Desktop$ sudo passwd root
+[sudo] password for user: 
+New password: 
+Retype new password: 
+passwd: password updated successfully
+
+	사용자 -> 관리자
+user@ubuntu:~/Desktop$ su -
+Password: 
+root@ubuntu:~# 
+
+	관리자 -> 사용자
+root@ubuntu:~# su user
+
+user@ubuntu:/root$ cd ~/Desktop
+user@ubuntu:~/Desktop$ ls -l
+total 8
+-rw-rw-r-- 1 user user 25 Sep 12 17:31 linux2.txt
+-rw-rw-r-- 1 user user  8 Sep 12 17:36 linux.txt
+
+
+
+
+

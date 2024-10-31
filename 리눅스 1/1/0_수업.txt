@@ -1,0 +1,33 @@
+VMWare 17 다운 url:
+
+https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html
+
+
+
+'Enhanced Keyboard Driver' -> 기능적으로 향상된 키보드를 제공
+
+16 version Key: ZF3R0-FHED2-M80TY-8QYGC-NPKYF
+
+17 version Key: MC60H-DWHD5-H80U9-6V85M-8280D
+
+
+
+Use an existing Virtual disk -> 기존에 사용하던 가상 HDD(*.vmdk)사용
+
+Use a physical disk -> 진짜 물리적인 HDD를 가상머신에 장착
+
+
+
+Store virtual dis an a single file -> 가상의 HDD가 1개 파일로 관리됨
+
+Split virtual disk into multiple files -> 가상의 HDD가 여러 개의 파일로 분리되어 관리
+
+Allocate all disk space now -> 가상 HDD를 관리하지 않고 실제로 80GB크기 파일 생성 (약간의 성능 향상)
+
+---> 아무거나 선택해도 상관은 없음 (VMware가 HDD를 관리하는 방법을 정하는 것 뿐)
+
+
+
+우분투 다운 url:
+
+Desktop(Server): https://releases.ubuntu.com/focal/

@@ -1,0 +1,50 @@
+
+ 1. 재설치하시오.
+ 2. 시간설정하시오.
+ 3. root 디렉토리안에 koreait 라는 디렉토리를 만드시고 koreait 디렉토리 안에 stu1,2,3,4,5를 만드시오.
+ 4. user폴더 안에는 linux라는 디렉토리를 만드시고, linux디렉토리 안에는 linux1, c2, java3 , python4 라는 디렉토리를 만드시오.
+
+ 5. koreait 디렉토리에서 절대경로를 확인하시오.  
+ 6. koreait 디렉토리에서 만든 디렉토리를 확인하시오.(보여주시오) 
+ 7. linux 폴더 내에 python4 디렉토리를 제거하시오. 
+=====================================================================
+ 8. linux 디렉토리 안에 java라는 파일을 만드시오. 
+
+ 9. java 파일을 복사하여 java2라는 파일을 만드시오.
+
+ 10. java2파일을 java3디렉토리에 넣으시오.
+
+
+user@ubuntu:~$ cd linux
+user@ubuntu:~/linux$ touch java
+user@ubuntu:~/linux$ ls
+c2  file1  java  java3  koreait  linux1
+user@ubuntu:~/linux$ cp java java2
+user@ubuntu:~/linux$ ls
+c2  file1  java  java2  java3  koreait  linux1
+user@ubuntu:~/linux$ mv java2 java3
+user@ubuntu:~/linux$ ls
+c2  file1  java  java3  koreait  linux1
+user@ubuntu:~/linux$ cd java3
+user@ubuntu:~/linux/java3$ ls
+java2
+
+ 11. ~/Desktop 디렉토리에서 linux.txt 파일을 만들고 linux.txt 파일을 편집해 koreait라는 내용을 추가하시오.
+
+ 12. 루트 디렉토리(/) 에서 파일의 뒷부분 (5개)만 출력하시오.
+
+user@ubuntu:~/Desktop$ touch linux.txt
+user@ubuntu:~/Desktop$ nano linux.txt
+
+user@ubuntu:/$ tail -n 5 /home/user/Desktop/linux.txt
+koreait
+user@ubuntu:/$ tail -n 5 ~/Desktop/linux.txt
+koreait
+
+
+ 13. 권한에 대한 내용을 서술하시오.
+
+ d rwx --x -wx :  디렉토리 /  소유자(읽기,쓰기,실행 가능), 그룹(실행 가능), 기타(쓰기, 실행 가능)
+ - --x rwx rwx : 파일 / 소유자(실행 가능), 그룹(읽기,쓰기,실행 가능), 기타(읽기,쓰기,실행 가능)
+ d rwx rwx rwx : 디렉토리 / 소유자, 그룹, 기타 모두 (읽기,쓰기,실행 가능)
+ 
